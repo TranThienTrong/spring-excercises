@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/753e2c756f.js" crossorigin="anonymous"></script>
+    <title>Registers List</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Registers List</h3>
+    <hr>
+
+    <a th:href="@{/addForm}" class="btn btn-primary btn-sm mb-3">Add Registers</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark bg-dark text-white">
+        <tr>
+            <th> Full Name</th>
+            <th> Mobile Number</th>
+            <th> Gender</th>
+            <th> Birthdate</th>
+            <th> Address</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="currRegister : ${registersList}">
+            <td th:text="${currRegister.getFullName()}"></td>
+            <td th:text="${currRegister.getMobileNumber()}"></td>
+            <td th:text="${currRegister.getGender()}"></td>
+            <td th:text="${currRegister.getBirthdate()}"></td>
+            <td th:text="${currRegister.getAddress()}"></td>
+            <td>
+                <a th:href="@{/update(registerId=${currRegister.getId()})}" class="btn btn-warning btn-sm"><i class="far fa-edit"></i>Update</a>
+                <a th:href="@{/delete(registerId=${currRegister.getId()})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if (!(confirm('Are you sure want to delete this register?'))) return false"
+                >Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+</html>

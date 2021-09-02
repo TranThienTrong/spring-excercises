@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/753e2c756f.js" crossorigin="anonymous"></script>
+    <script th:src="@{js/script.js}"></script>
+    <title>Vaccination Registering Form</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-style-2-heading">VACCINATION REGISTERING FORM</div>
+    <form class="form" th:action="@{/save}" th:object="${register}" method="POST" onsubmit="return checkForm(this);">
+
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group row">
+            <label for="field1" class="col-3 col-form-label"><span>Full Name <span class="required">*</span></span></label>
+            <div class="col-5">
+                <input type="text" th:field="*{fullName}" class="input-field form-control" id="field1">
+                <div class="invalid-feedback"></div>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('fullName')}"
+                      th:errors="*{fullName}"></p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group row">
+            <label for="field2" class="col-3 col-form-label"><span>Mobile Number <span class="required">*</span></span></label>
+            <div class="col-5">
+                <input type="text" th:field="*{mobileNumber}" class="input-field form-control" id="field2">
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('mobileNumber')}"
+                      th:errors="*{mobileNumber}"></p>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group row">
+            <label for="birthday-field" class="col-3 col-form-label"><span>Birthday <span class="required">*</span></span></label>
+            <div class="col-5">
+                <input type="date" class="input-field form-control" id="birthday-field" th:field="*{birthdate}"/>
+                <p class="alert alert-danger form-control" th:if="${#fields.hasErrors('birthdate')}"
+                      th:errors="*{birthdate}"></p>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group row">
+            <label for="gender-field" class="col-3 col-form-label"><span>Gender <span class="required">*</span></span></label>
+            <div class="col-5">
+                <select th:field="*{gender}" id="gender-field" class="select-field col-sm-2 col-form-label input-field form-control">
+                    <option th:value="'Male'" th:text="Male"></option>
+                    <option th:value="'Female'" th:text="Female"></option>
+                    <option th:value="'Other'" th:text="Other"></option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group row">
+            <label for="address-field" class="col-3 col-form-label"><span>Address (e.g. 364 Cong Hoa) <span class="required">*</span></span></label>
+            <div class="col-5">
+                        <textarea id="address-field" class="input-field form-control col-sm-2" rows="3" th:field="*{address}">
+                        </textarea>
+                <p class="alert alert-danger form-control" th:if="${#fields.hasErrors('address')}"
+                   th:errors="*{address}"></p>
+            </div>
+        </div>
+        
+        <br>
+
+        <p><input type="checkbox" name="agree"> I agreed to take vaccine </p>
+        <p>All fields with (*) are mandatory </p>
+        <button id="submit-btn" class="btn col-2 btn-warning" type="submit" value="Submit">Submit</button>
+
+    </form>
+    <hr>
+    <a th:href="@{/registers}">Back to Registers List</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+</html>
