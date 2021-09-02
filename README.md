@@ -1,13 +1,13 @@
 # spring-excercise
 This is Spring exercise used for personal practice.
 
-## Excercise 1
+## Exercise 1
 Following tutorial at: https://spring.io/guides/gs/spring-boot/
 
-## Excercise 2
+## Exercise 2
 Following tutorial at: https://spring.io/guides/gs/serving-web-content/
 
-## Excercixe 3
+## Exercise 3
 
 ### validate rules:
 
@@ -26,4 +26,19 @@ Following tutorial at: https://spring.io/guides/gs/serving-web-content/
 > **Address:**
 >- Cannot blank
 >- From 3 to 200 characters
+
+
+## Exercise 4
+
+Using Register Form from excercise 3 wth Database Features
+
+### Database Features:
+
+> **Create Register:**
+
+> **Retrive Registers List**
+
+> **Update Register:**
+
+> **Delete Register:**
 
