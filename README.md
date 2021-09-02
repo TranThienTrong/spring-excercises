@@ -32,13 +32,13 @@ Following tutorial at: https://spring.io/guides/gs/serving-web-content/
 
 Using Register Form from excercise 3 wth Database Features
 
-### Database Features:
+### Database Features
 
-> **Create Register:**
+> **Create Register**
 
 > **Retrive Registers List**
 
-> **Update Register:**
+> **Update Register**
 
-> **Delete Register:**
+> **Delete Register**
 
